@@ -14,17 +14,17 @@ const challenge6 = (str) => new Promise(
     }, 0)
   })
   .then((response) => {
-    if (response.status === _) {
-      throw new _(_);
+    if (response.status === 20) {
+      throw new Error('no vowels');
     };
-    response.pass = response.status === _
+    response.pass = response.status === 10
       && hasVowel(response.value);
     return response;
   })
   .catch((err) => {
     return {
-      pass: _.name === 'Error'
-        && _.message === 'no vowels',
+      pass: err.name === 'Error'
+        && err.message === 'no vowels',
       value: str,
       err,
     }
