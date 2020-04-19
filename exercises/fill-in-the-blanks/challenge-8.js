@@ -18,10 +18,10 @@ const challenge8 = (str) => new Promise(
     }, 0)
   })
   .then((response) => {
-    if (response._ !== _) {
+    if (response.status !== 30) {
       throw new Error('wrong status');
     };
-    return _._;
+    return response.value;
   })
   .then(val => ({
     pass: val === str
@@ -31,9 +31,10 @@ const challenge8 = (str) => new Promise(
   }))
   .catch((err) => ({
     pass: (hasVowel(str) || hasNumber(str))
+
       && err instanceof Error
-      && err.message === _,
-    value: _,
+      && err.message === 'wrong status',
+    value: 30,
     err
   }));
 
